@@ -1,59 +1,67 @@
 <?php 
     // include header
     include 'header-nav.php';
-?>
 
+    $uid = $_GET['uid'];
+?>
+<p id="uid"><?php echo $uid; ?></p>
 <div class="content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Edit Profile</h4>
+                        <h4 class="title">User Profile</h4>
                     </div>
                     <div class="content">
                         <form>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label>Company (disabled)</label>
-                                        <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc.">
+                                        <input type="text" class="form-control" disabled placeholder="Company" value="FindMe.Inc">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Username</label>
-                                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                        <input type="text" class="form-control" placeholder="Username" id='user_name'>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" placeholder="Email">
+                                        <input type="email" class="form-control" placeholder="Email" id="user_email">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                        <input disabled type="text" class="form-control" placeholder="Company" id="prof_fname">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                                        <input disabled type="text" class="form-control" placeholder="Last Name" id="prof_lname">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-12">
+                           <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Address</label>
-                                        <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                        <label>Phone Number</label>
+                                        <input disabled type="text" class="form-control" placeholder="Phone number" id="prof_phone">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Conditions</label>
+                                        <input disabled type="text" class="form-control" placeholder="Other Conditions" id="prof_condition">
                                     </div>
                                 </div>
                             </div>
@@ -61,34 +69,47 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>City</label>
-                                        <input type="text" class="form-control" placeholder="City" value="Mike">
+                                        <label>Blood Group</label>
+                                        <input disabled type="text" class="form-control" placeholder="Blood Group" id="prof_blood">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Country</label>
-                                        <input type="text" class="form-control" placeholder="Country" value="Andrew">
+                                        <label>Med. Allergies</label>
+                                        <input disabled type="text" class="form-control" placeholder="Medical Allergies" id="prof_medallergies">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Postal Code</label>
-                                        <input type="number" class="form-control" placeholder="ZIP Code">
+                                        <label>Other Allergies</label>
+                                        <input disabled type="text" class="form-control" placeholder="Other Allergies" id="prof_allergies">
                                     </div>
                                 </div>
                             </div>
 
+                            <hr>
+                            <h4>Emagency Contacts</h4>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>About Me</label>
-                                        <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                        <label id="prof_em1name">User 1</label>
+                                        <input disabled type="text" class="form-control" placeholder="Emagency 1" id="prof_em1">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label id="prof_em2name">User 2</label>
+                                        <input disabled type="text" class="form-control" placeholder="Emagency 2" id="prof_em2">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label id="prof_em3name">User 3</label>
+                                        <input disabled type="text" class="form-control" placeholder="Emagency 3" id="prof_em3">
                                     </div>
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -102,17 +123,14 @@
                     <div class="content">
                         <div class="author">
                              <a href="#">
-                            <img class="avatar border-gray" src="assets/img/faces/face-3.jpg" alt="..."/>
+                            <img class="avatar border-gray" src="assets/img/default-avatar.png" alt="..."/>
 
-                              <h4 class="title">Mike Andrew<br />
-                                 <small>michael24</small>
+                              <h4 class="title" id="prof_fullname"><br />
+                                 <small class="user_name"></small>
                               </h4>
                             </a>
                         </div>
-                        <p class="description text-center"> "Lamborghini Mercy <br>
-                                            Your chick she so thirsty <br>
-                                            I'm in that two seat Lambo"
-                        </p>
+                        <p class="description text-center"> Email: <span class="user_email"></span> <br></p>
                     </div>
                     <hr>
                     <div class="text-center">
