@@ -20,8 +20,6 @@ $(document).ready(function() {
 
         $(".user_name").html(firebaseUser.displayName);
         $(".user_email").html(firebaseUser.email);
-        $("#user_name")[0].placeholder = firebaseUser.displayName;
-        $("#user_email")[0].placeholder = firebaseUser.email;
     });
 
     // add new admin
