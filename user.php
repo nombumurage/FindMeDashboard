@@ -1,4 +1,5 @@
-<?php 
+<?php
+    error_reporting(0);
     // include header
     include 'header-nav.php';
 
@@ -88,7 +89,7 @@
                             </div>
 
                             <hr>
-                            <h4>Emagency Contacts</h4>
+                            <h4>Emergency Contacts</h4>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -146,7 +147,7 @@
     </div>
 </div>
 
-<?php 
+<?php
     // include footer
     include 'footer.php';
 ?>

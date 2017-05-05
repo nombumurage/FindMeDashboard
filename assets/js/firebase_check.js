@@ -81,4 +81,26 @@ $(document).ready(function() {
 
     });
 
+    // reference database
+    const dbRefAll = firebase.database().ref().child("user");
+    //sync data
+    dbRefAll.on('value', snap => {
+
+        // $("#usersAll");
+
+        console.log(snap.val());
+        console.log(">>> " + snap.numChildren());
+
+        snap.forEach(
+            function(childSnapshot) {
+                console.log(childSnapshot.uid);
+            }
+        );
+
+        // for (var i = 0; i < snap.numChildren(); i++) {
+        //     // console.log(snap.childSnapshot.name();
+        //     console.log(Object.keys(snap));
+        // }
+    });
+
 });
