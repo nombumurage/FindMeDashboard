@@ -12,16 +12,16 @@
 
         <!-- Bootstrap core CSS     -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-
         <!-- Animation library for notifications   -->
         <link href="assets/css/animate.min.css" rel="stylesheet"/>
-
         <!--  Light Bootstrap Table core CSS    -->
-        <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
-
-        <!--  CSS for Demo Purpose, don't include it in your project     -->
+        <link href="assets/css/findme.css" rel="stylesheet"/>
         <link href="assets/css/demo.css" rel="stylesheet" />
-
+        <!--   Core JS Files   -->
+        <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+        <!-- firebase script -->
+        <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+        <script src="assets/js/firebase_check.js"></script>
         <!--     Fonts and icons     -->
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
