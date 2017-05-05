@@ -11,29 +11,76 @@ $(document).ready(function() {
     };
     firebase.initializeApp(config);
 
-    // get input fields
-    const userEmail = $("#login_email");
-    const userPass = $("#login_password");
-    const btnLogin = $("#signin_btn");
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (!firebaseUser) {
+            window.location.assign("index.html");
+        }
 
-    btnLogin.click(function(e) {
-        const email = userEmail.val();
-        const pass = userPass.val();
+        // console.log(firebaseUser);
+
+        $(".user_name").html(firebaseUser.displayName);
+        $(".user_email").html(firebaseUser.email);
+        $("#user_name")[0].placeholder = firebaseUser.displayName;
+        $("#user_email")[0].placeholder = firebaseUser.email;
+    });
+
+    // add new admin
+    // button to save
+    $("#new_User").click(function() {
+        // body...
+        // collect values from form
         const auth = firebase.auth();
 
         // signIn
-        const promise = auth.signInWithEmailAndPassword(email, pass);
+        const promise = auth.createUserWithEmailAndPassword(email, pass);
 
-        // console.log("email => " + email + " pass => " + pass);
-        promise.catch(e => console.log(e.message));
-        return false;
     });
 
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-            window.location.assign("dashboard.php");
-        } else {
-            console.log("You are not Logged In");
-        }
+    // logout from dashboard
+    // button to logout
+    $("#logout").click(function(e) {
+        // body...
+        firebase.auth().signOut();
+
     });
+
+    // get the current user key
+    var uid = $("#uid").text();
+    // console.log(">>>> " + uid);
+
+    // reference database
+    const dbRef = firebase.database().ref().child("user").child(uid);
+
+    // sync data
+    dbRef.on('value', snap => {
+        // console.log(">>> " + snap.val().);
+
+        // get placeholders
+        // full name
+        $("#prof_fullname").html(snap.val().medicalDetails.name);
+        // first name
+        $("#prof_fname")[0].placeholder = snap.val().medicalDetails.name;
+        // last name
+        $("#prof_lname")[0].placeholder = snap.val().medicalDetails.name;
+        // lblood group
+        $("#prof_blood")[0].placeholder = snap.val().medicalDetails.bloodGroup;
+        // medical allergies
+        $("#prof_medallergies")[0].placeholder = snap.val().medicalDetails.medAllergies;
+        // phone number
+        $("#prof_phone")[0].placeholder = snap.val().medicalDetails.phoneNumber;
+        // other conditions
+        $("#prof_condition")[0].placeholder = snap.val().medicalDetails.condition;
+
+        // emagency contact 1
+        $("#prof_em1name").html(snap.val().emergencyContacts.emergencyContactNameOne);
+        $("#prof_em1")[0].placeholder = snap.val().emergencyContacts.emergencyContactNumberOne;
+        // emagency contact 2
+        $("#prof_em2name").html(snap.val().emergencyContacts.emergencyContactNameTwo);
+        $("#prof_em2")[0].placeholder = snap.val().emergencyContacts.emergencyContactNumberTwo;
+        // emagency contact 3
+        $("#prof_em3name").html(snap.val().emergencyContacts.emergencyContactNameThree);
+        $("#prof_em3")[0].placeholder = snap.val().emergencyContacts.emergencyContactNumberThree;
+
+    });
+
 });
